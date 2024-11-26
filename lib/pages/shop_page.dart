@@ -26,11 +26,13 @@ class _ShopPageState extends State<ShopPage> {
               title: Text("Successfully added!"),
               content: Text(
                 "Check your cart",
-                style: TextStyle(color: Colors.black, fontSize: 16),
+                style: TextStyle(
+                    color: Theme.of(context).colorScheme.inverseSurface,
+                    fontSize: 16),
                 textAlign: TextAlign.center,
               ),
               contentTextStyle: TextStyle(fontWeight: FontWeight.w500),
-              backgroundColor: Colors.grey.shade100,
+              backgroundColor: Theme.of(context).colorScheme.primary,
             ));
   }
 
@@ -45,7 +47,7 @@ class _ShopPageState extends State<ShopPage> {
                   child: TextField(
                     decoration: InputDecoration(
                         filled: true,
-                        fillColor: Colors.white,
+                        fillColor: Theme.of(context).colorScheme.primary,
                         hintText: "Search",
                         hintStyle: const TextStyle(color: Colors.grey),
                         suffixIcon: const Icon(
@@ -61,12 +63,12 @@ class _ShopPageState extends State<ShopPage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 25.0),
                   child: Text(
-                    "everyone flies.. some fly longer than others",
+                    "everyone flies.. some fly longer than other",
                     style: TextStyle(color: Colors.grey[600]),
                   ),
                 ),
                 //hot picks
-                const Padding(
+                Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -77,10 +79,15 @@ class _ShopPageState extends State<ShopPage> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 24),
                       ),
-                      Text(
-                        "See all",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.blue),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/moreItems');
+                        },
+                        child: Text(
+                          "See all",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.blue),
+                        ),
                       )
                     ],
                   ),
@@ -108,7 +115,7 @@ class _ShopPageState extends State<ShopPage> {
                   padding:
                       const EdgeInsets.only(top: 25.0, left: 25, right: 25),
                   child: Divider(
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                 )
               ],

@@ -20,7 +20,8 @@ class ShoeTile extends StatelessWidget {
           EdgeInsets.only(left: 25.0, right: index == shoeListLength ? 25 : 0),
       width: 280,
       decoration: BoxDecoration(
-          color: Colors.grey[100], borderRadius: BorderRadius.circular(12)),
+          color: Theme.of(context).colorScheme.primary,
+          borderRadius: BorderRadius.circular(12)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -34,7 +35,7 @@ class ShoeTile extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: Text(
               shoe.description,
-              style: TextStyle(color: Colors.grey[600]),
+              style: TextStyle(color: Theme.of(context).colorScheme.tertiary),
             ),
           ),
           //price + details
@@ -53,7 +54,7 @@ class ShoeTile extends StatelessWidget {
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                     Text(
-                      "\$" + shoe.price,
+                      "\$${shoe.price}",
                       style: TextStyle(color: Colors.grey),
                     ),
                   ],

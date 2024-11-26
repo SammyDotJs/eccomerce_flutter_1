@@ -10,10 +10,11 @@ class BottomNavBar extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: GNav(
-          color: Colors.grey,
-          activeColor: Colors.grey.shade700,
-          tabActiveBorder: Border.all(color: Colors.white),
-          tabBackgroundColor: Colors.grey.shade100,
+          color: Theme.of(context).colorScheme.secondary,
+          activeColor: Theme.of(context).colorScheme.inversePrimary,
+          tabActiveBorder:
+              Border.all(color: Theme.of(context).colorScheme.primary),
+          tabBackgroundColor: Theme.of(context).colorScheme.primary,
           mainAxisAlignment: MainAxisAlignment.center,
           tabBorderRadius: 16,
           onTabChange: (value) => onTabChange(value),

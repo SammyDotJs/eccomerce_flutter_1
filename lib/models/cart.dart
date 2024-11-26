@@ -1,7 +1,10 @@
+import 'package:ecommerce_app_1/data/database.dart';
 import 'package:ecommerce_app_1/models/shoe.dart';
 import 'package:flutter/material.dart';
 
 class Cart extends ChangeNotifier {
+  UserCartDatabase db = UserCartDatabase();
+
   // list of shoes for sale
   List<Shoe> shoeShop = [
     Shoe(
@@ -34,22 +37,24 @@ class Cart extends ChangeNotifier {
 
   // get cart
   List<Shoe> getUserCart() {
-    return userCart;
+    return db.userCart;
   }
 
   // add items to cart
   void addItemToCart(Shoe shoe) {
-    if (userCart.contains(shoe)) {
+    if (db.userCart.contains(shoe)) {
     } else {
-      userCart.add(shoe);
+      db.userCart.add(shoe);
     }
+    db.updateDatabase();
 
     notifyListeners();
   }
 
   // remove items from cart
   void removeItemFromCart(Shoe shoe) {
-    userCart.remove(shoe);
+    db.userCart.remove(shoe);
+    db.updateDatabase();
     notifyListeners();
   }
 }

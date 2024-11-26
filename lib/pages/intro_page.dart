@@ -1,4 +1,3 @@
-import 'package:ecommerce_app_1/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatelessWidget {
@@ -7,7 +6,7 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
@@ -20,6 +19,7 @@ class IntroPage extends StatelessWidget {
                 child: Image.asset(
                   'lib/images/nike-logo.png',
                   height: 240,
+                  color: Theme.of(context).colorScheme.inversePrimary,
                 ),
               ),
               const SizedBox(
@@ -34,11 +34,11 @@ class IntroPage extends StatelessWidget {
                 height: 24,
               ),
               //sub title
-              const Text(
+              Text(
                 "Brand new sneakers and custom kicks made with premiun quality",
                 style: TextStyle(
                   fontSize: 20,
-                  color: Colors.grey,
+                  color: Theme.of(context).colorScheme.secondary,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -48,21 +48,19 @@ class IntroPage extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   debugPrint("GestureDetector tapped");
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const HomePage()));
+                  Navigator.pushNamed(context, '/homepage');
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.grey[900],
+                      color: Theme.of(context).colorScheme.onInverseSurface,
                       borderRadius: BorderRadius.circular(12)),
                   padding: const EdgeInsets.all(25),
-                  child: const Center(
+                  child: Center(
                     child: Text(
                       "Shop Now",
                       style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                          color: Theme.of(context).colorScheme.primary,
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),

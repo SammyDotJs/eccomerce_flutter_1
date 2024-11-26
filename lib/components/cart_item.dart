@@ -20,7 +20,8 @@ class _CartItemState extends State<CartItem> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(8)),
+          color: Theme.of(context).colorScheme.primary,
+          borderRadius: BorderRadius.circular(8)),
       margin: EdgeInsets.only(bottom: 10),
       child: ListTile(
         leading: Image.asset(
@@ -29,7 +30,7 @@ class _CartItemState extends State<CartItem> {
           height: 70,
         ),
         title: Text(widget.shoe.name),
-        subtitle: Text("\$" + widget.shoe.price),
+        subtitle: Text("\$${widget.shoe.price}"),
         trailing: IconButton(
           icon: Icon(Icons.delete),
           onPressed: () => deleteFromCart(widget.shoe),
